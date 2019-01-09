@@ -1,0 +1,36 @@
+#header {
+    margin-top: 25px;
+    border: solid 5px #01ABAA;
+    border-radius: 8px;
+    max-width: 90%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    font-size: 50px;
+    font-weight: bolder;
+}
+
+#current {
+    border: solid 5px #01ABAA;
+    border-radius: 8px;
+    max-width: 90%;
+    margin-bottom: 12px;
+}
+
+#train1 {
+    margin-right: 30px;
+}
+
+#train2 {
+    margin-left: 30px;
+}
+
+.top {
+    background-color: #01ABAA;
+    color: white;
+    padding-bottom: 4px;
+}
+
+.userInput {
+    margin-bottom: 12px;
+}

@@ -1,0 +1,116 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Train Schedule</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- local reset and style css -->
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/style.css" />
+    <!-- Bootstrap style and JS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/images/trainIcon.png" />
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <!-- local JS -->
+    <script src="assets/javascript/app.js"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="container text-center" id="header">
+            <div>
+                <img height="35px" width="300px" id="train1" src="assets/images/trainPic.png"> Train Schedules <img
+                    height="35px" width="300px" id="train2" src="assets/images/trainPic.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container" id="current">
+            <div class="row">
+                <h4 class="top col-12">
+                    Current Train Schedule
+                </h4>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Train Name</th>
+                        <th scope="col">Destination</th>
+                        <th scope="col">Frequency</th>
+                        <th scope="col">Next Arrival</th>
+                        <th scope="col">Minutes Away</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="container" id="current">
+            <div class="row">
+                <h4 class="top col-12">
+                    Add a Train
+                </h4>
+            </div>
+            <form class="userInput">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Train Name</label>
+                    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Give the train a name">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Destination</label>
+                    <input class="form-control" placeholder="Where is this train going?">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">First Train Time (HH:mm - military time)</label>
+                    <input class="form-control" placeholder="HH:mm - military time">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Frequency (minutes)</label>
+                    <input class="form-control" placeholder="Minutes">
+                </div>
+
+                <button type="submit" class="btn-lg btn-dark">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
