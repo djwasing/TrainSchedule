@@ -14,11 +14,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
     <!-- Favicon -->
     <link rel="icon" href="assets/images/trainIcon.png" />
+    <!-- Firebase link -->
+    <script src="https://www.gstatic.com/firebasejs/5.7.2/firebase.js"></script>
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
         crossorigin="anonymous"></script>
     <!-- local JS -->
-    <script src="assets/javascript/app.js"></script>
+    <script src="assets/app.js"></script>
 </head>
 
 <body>
@@ -91,23 +93,23 @@
             </div>
             <form class="userInput">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Train Name</label>
-                    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Give the train a name">
+                    <label for="trainName">Train Name</label>
+                    <input class="form-control" id="newName" placeholder="Give the train a name">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Destination</label>
-                    <input class="form-control" placeholder="Where is this train going?">
+                    <label for="destination">Destination</label>
+                    <input class="form-control" id="newDest" placeholder="Where is this train going?">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">First Train Time (HH:mm - military time)</label>
-                    <input class="form-control" placeholder="HH:mm - military time">
+                    <label for="timeArrive">First Train Time (HH:mm - military time)</label>
+                    <input class="form-control" id="newTime" placeholder="HH:mm - military time">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Frequency (minutes)</label>
-                    <input class="form-control" placeholder="Minutes">
+                    <label for="frequency">Frequency (minutes)</label>
+                    <input class="form-control" id="newFreq" placeholder="Minutes">
                 </div>
 
-                <button type="submit" class="btn-lg btn-dark">Submit</button>
+                <button type="button" class="btn-lg btn-dark" id="submit">Submit</button>
             </form>
         </div>
     </div>
