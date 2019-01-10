@@ -8,13 +8,13 @@ var config = {
     storageBucket: "trainscheduler-15b66.appspot.com",
     messagingSenderId: "535277925346"
 };
-  
+
 firebase.initializeApp(config);
 
 var database = firebase.database();
 
-$(document).on("click", "#submit", function() {         //on click, getting values of input fields, 
-    
+$(document).on("click", "#submit", function () {         //on click, getting values of input fields, 
+
     var newName = $("#newName").val().trim();
     var newDest = $("#newDest").val().trim();
     var newTime = $("#newTime").val().trim();
@@ -41,27 +41,46 @@ $(document).on("click", "#submit", function() {         //on click, getting valu
 
 });
 
-    // contact firebase and return info in order from oldest to newest
-database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function (snapshot) {
+// contact firebase and return info in order from oldest to newest
+setInterval(() => {
+    $("#table").empty();
+    database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function (snapshot) {
 
-    console.log(snapshot);
-    var newRow = $("<tr>");         //creates new row within the table
-    var listName = $("<th>");       //creates new header cell within row
-    var listDest = $("<td>");       //creates new cell within the row
-    var listFreq = $("<td>");       //creates new cell within the row
+        console.log(snapshot);
+        var newRow = $("<tr>");         //creates new row within the table
+        var listName = $("<th>");       //creates new header cell within row
+        var listDest = $("<td>");       //creates new cell within the row
+        var listFreq = $("<td>");       //creates new cell within the row
+        var listArrive = $("<td>");
+        var listMinAway = $("<td>");
+        //giving new row info from firebase and attrs, 
+        //then adding the new row to the table
 
-    //giving new row info from firebase and attrs, 
-    //then adding the new row to the table
-    
-    listName.text(snapshot.val().name).attr("scope", "row").attr("id", "name");
+        var data = snapshot.val();
+        var convertedTime = moment(data.time, "HH:mm");
+        var timeDiff = moment().diff(moment(convertedTime), "minutes");
+        var timeRemaining = timeDiff % data.frequency;
+        var minAway = data.frequency - timeRemaining;
+        var nextArrive = moment().add(minAway, "minutes");
+        nextArrive = moment(nextArrive).format("HH:mm");
 
-    listDest.text(snapshot.val().destination).attr("id", "destination");
+        listName.text(data.name).attr("scope", "row");
 
-    listFreq.text(snapshot.val().frequency).attr("id", "frequency");
-    
-    newRow.append(listName, listDest, listFreq);
+        listDest.text(data.destination);
 
-    $("#table").append(newRow);
-    
-    
-});
+        listFreq.text(data.frequency);
+
+        listArrive.text(nextArrive);
+
+        listMinAway.text(minAway);
+
+        newRow.append(listName, listDest, listFreq, listArrive, listMinAway);
+        
+        $("#table").append(newRow);
+    });
+}, 1000);
+
+
+
+
+
