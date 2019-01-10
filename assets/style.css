@@ -5,7 +5,7 @@
     max-width: 90%;
     padding-top: 12px;
     padding-bottom: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
     font-size: 50px;
     font-weight: bolder;
 }
@@ -14,7 +14,7 @@
     border: solid 5px #01ABAA;
     border-radius: 8px;
     max-width: 90%;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
 }
 
 #train1 {
@@ -32,5 +32,5 @@
 }
 
 .userInput {
-    margin-bottom: 12px;
+    margin-bottom: 24px;
 }
