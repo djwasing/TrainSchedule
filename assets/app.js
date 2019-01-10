@@ -56,17 +56,17 @@ setInterval(() => {
         //giving new row info from firebase and attrs, 
         //then adding the new row to the table
 
-        var data = snapshot.val();
-        var convertedTime = moment(data.time, "HH:mm");
-        var timeDiff = moment().diff(moment(convertedTime), "minutes");
-        var timeRemaining = timeDiff % data.frequency;
-        var minAway = data.frequency - timeRemaining;
-        var nextArrive = moment().add(minAway, "minutes");
-        nextArrive = moment(nextArrive).format("HH:mm");
+        var data = snapshot.val();                                  //assigning var to the database info
+        var convertedTime = moment(data.time, "HH:mm");             //converting the time into minutes and assigning a var
+        var timeDiff = moment().diff(moment(convertedTime), "minutes");         //finding the difference between now and the first arrival time
+        var timeRemaining = timeDiff % data.frequency;              //finding the time until next arrival by dividing the timeDiff by the frequency
+        var minAway = data.frequency - timeRemaining;               //subtracting the time remaining from the freq to find how many min away the next train is
+        var nextArrive = moment().add(minAway, "minutes");          //establishing nextArrive by comparing now to the next arrival
+        nextArrive = moment(nextArrive).format("HH:mm");            //formatting into the HH:mm 
 
-        listName.text(data.name).attr("scope", "row");
+        listName.text(data.name).attr("scope", "row");              //creating new tables cells and giving them their info
 
-        listDest.text(data.destination);
+        listDest.text(data.destination);                            
 
         listFreq.text(data.frequency);
 
@@ -74,9 +74,9 @@ setInterval(() => {
 
         listMinAway.text(minAway);
 
-        newRow.append(listName, listDest, listFreq, listArrive, listMinAway);
+        newRow.append(listName, listDest, listFreq, listArrive, listMinAway);           
         
-        $("#table").append(newRow);
+        $("#table").append(newRow);                         //updating table with newRow
     });
 }, 1000);
 
