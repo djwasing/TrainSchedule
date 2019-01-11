@@ -70,7 +70,7 @@ setInterval(() => {
 
         listFreq.text(data.frequency);
 
-        listArrive.text(nextArrive);
+        listArrive.text(nextArrive).addClass("arriveTime");
 
         listMinAway.text(minAway);
 
