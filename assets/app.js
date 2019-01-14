@@ -18,7 +18,7 @@ $(document).on("click", "#submit", function () {         //on click, getting val
     var newName = $("#newName").val().trim();
     var newDest = $("#newDest").val().trim();
     var newTime = $("#newTime").val().trim();
-    var newFreq = $("#newFreq").val().trim();
+    var newFreq = parseInt($("#newFreq").val().trim());
 
     function newTrainData(trainName, trainDestination, trainTime, trainFrequency) {
         database.ref().push({                       //pushing the newTrainData to the firebase
