@@ -14,7 +14,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 $(document).on("click", "#submit", function () {         //on click, getting values of input fields, 
-
+    
     var newName = $("#newName").val().trim();
     var newDest = $("#newDest").val().trim();
     var newTime = $("#newTime").val().trim();
@@ -31,13 +31,11 @@ $(document).on("click", "#submit", function () {         //on click, getting val
     };
 
     newTrainData(newName, newDest, newTime, newFreq);       //calling func
-
+    $("#table").empty();
     $("#newName").val("");          //resetting the input fields to blank
     $("#newDest").val("");
     $("#newTime").val("");
     $("#newFreq").val("");
-
-    console.log("New Data Added");
 
 });
 
@@ -46,7 +44,7 @@ setInterval(() => {
     $("#table").empty();
     database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function (snapshot) {
 
-        console.log(snapshot);
+        
         var newRow = $("<tr>");         //creates new row within the table
         var listName = $("<th>");       //creates new header cell within row
         var listDest = $("<td>");       //creates new cell within the row
