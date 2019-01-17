@@ -20,6 +20,10 @@ $(document).on("click", "#submit", function () {         //on click, getting val
     var newTime = $("#newTime").val().trim();
     var newFreq = parseInt($("#newFreq").val().trim());
 
+    if (!$.isNumeric(newFreq)) {                                        //added alert for the user if they write words/letters in the freq field
+        alert("Please enter a number in the 'Frequency' field.");
+    }
+
     function newTrainData(trainName, trainDestination, trainTime, trainFrequency) {
         database.ref().push({                       //pushing the newTrainData to the firebase
             name: trainName,
@@ -44,7 +48,6 @@ setInterval(() => {
     $("#table").empty();
     database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function (snapshot) {
 
-        
         var newRow = $("<tr>");         //creates new row within the table
         var listName = $("<th>");       //creates new header cell within row
         var listDest = $("<td>");       //creates new cell within the row
@@ -60,7 +63,7 @@ setInterval(() => {
         var timeRemaining = timeDiff % data.frequency;              //finding the time until next arrival by dividing the timeDiff by the frequency
         var minAway = data.frequency - timeRemaining;               //subtracting the time remaining from the freq to find how many min away the next train is
         var nextArrive = moment().add(minAway, "minutes");          //establishing nextArrive by comparing now to the next arrival
-        nextArrive = moment(nextArrive).format("HH:mm");            //formatting into the HH:mm 
+        nextArrive = moment(nextArrive).format("h:mm A");            //formatting into 12 hr time with AM/PM 
 
         listName.text(data.name).attr("scope", "row");              //creating new tables cells and giving them their info
 
